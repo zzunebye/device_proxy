@@ -9,7 +9,6 @@ class ProxyConfig {
   }
 
   void _init(String proxyUrl){
-    print("_init: $proxyUrl");
     isEnable = proxyUrl.isNotEmpty;
 
     if(isEnable!) {
