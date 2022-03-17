@@ -1,8 +1,8 @@
 class ProxyConfig {
-  late bool isEnable;
-  late String host;
-  late String port;
-  late String proxyUrl;
+  bool? isEnable;
+  String? host;
+  String? port;
+  String? proxyUrl;
 
   ProxyConfig(String proxyUrl) {
     _init(proxyUrl);
@@ -12,7 +12,7 @@ class ProxyConfig {
     print("_init: $proxyUrl");
     isEnable = proxyUrl.isNotEmpty;
 
-    if(isEnable) {
+    if(isEnable!) {
       this.proxyUrl = proxyUrl;
       final proxyRaw = proxyUrl.split(':');
       this.host = proxyRaw[0];
