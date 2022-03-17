@@ -1,4 +1,5 @@
 import 'dart:async';
+
 import 'package:device_proxy/src/ProxyConfig.dart';
 import 'package:flutter/services.dart';
 
@@ -7,6 +8,12 @@ class DeviceProxy {
 
   static Future<ProxyConfig> get proxyConfig async {
     final String proxyData = await _channel.invokeMethod('getProxySetting');
+    print("DeviceProxy-proxyData: $proxyData");
+    return ProxyConfig(proxyData);
+  }
+
+  static Future<ProxyConfig> get proxyConfigTest async {
+    final String proxyData = await _channel.invokeMethod('getProxySettingTest');
     print("DeviceProxy-proxyData: $proxyData");
     return ProxyConfig(proxyData);
   }

@@ -13,13 +13,16 @@ public class SwiftDeviceProxyPlugin: NSObject, FlutterPlugin {
         case "getProxySetting":
             result(getProxyUrl())
             break
+        case "getProxySettingTest":
+            result(getProxyUrlTest())
+            break
         default:
             result(FlutterMethodNotImplemented)
             break
     }
   }
 
-  func getProxyUrl() -> String {
+  func getProxyUrlTest() -> String {
           guard let proxySettings = CFNetworkCopySystemProxySettings()?.takeUnretainedValue(),
               let url = URL(string: "https://www.bing.com/") else {
                   return "error1:"
@@ -37,7 +40,7 @@ public class SwiftDeviceProxyPlugin: NSObject, FlutterPlugin {
           return "error3: proxies - \(proxies) settings - \(settings)"
       }
     
-    func getProxyUrlOld() -> String {
+    func getProxyUrl() -> String {
         guard let proxySettings = CFNetworkCopySystemProxySettings()?.takeUnretainedValue(),
             let url = URL(string: "https://www.bing.com/") else {
                 return ""
