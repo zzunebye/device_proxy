@@ -10,9 +10,4 @@ class DeviceProxy {
     final String proxyData = await _channel.invokeMethod('getProxySetting');
     return ProxyConfig(proxyData);
   }
-
-  static Future<ProxyConfig> get proxyConfigTest async {
-    final String proxyData = await _channel.invokeMethod('getProxySettingTest');
-    return ProxyConfig(proxyData);
-  }
 }
