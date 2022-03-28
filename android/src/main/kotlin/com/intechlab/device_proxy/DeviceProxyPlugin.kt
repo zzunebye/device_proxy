@@ -6,11 +6,15 @@ import io.flutter.plugin.common.MethodChannel
 import io.flutter.plugin.common.MethodChannel.MethodCallHandler
 import io.flutter.plugin.common.MethodChannel.Result
 import io.flutter.plugin.common.PluginRegistry.Registrar
+
+import io.flutter.embedding.android.FlutterActivity;
+import io.flutter.embedding.engine.FlutterEngine;
+
 import android.app.Activity
 
 
 
-class DeviceProxyPlugin(val activity: Activity?) : MethodCallHandler {
+class DeviceProxyPlugin(val activity: Activity?) : FlutterActivity {
 
   companion object {
     @JvmStatic
